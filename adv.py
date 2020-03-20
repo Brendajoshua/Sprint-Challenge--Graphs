@@ -28,8 +28,9 @@ player = Player(world.starting_room)
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
+random.seed(1123)
 traversal_path = traverse_map(player)
-print(traversal_path)
+# print(traversal_path)
 
 
 

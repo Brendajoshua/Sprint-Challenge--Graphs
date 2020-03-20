@@ -1,3 +1,5 @@
+import random
+
 class Queue():
     def __init__(self):
         self.queue = []
@@ -15,10 +17,17 @@ class Queue():
         return len(self.queue)
 
 def find_unexplored(room):
-    for direction in room:
-        if room[direction] == '?':
-            return direction
-    return None
+    # for direction in room:
+    #     if room[direction] == '?':
+    #         return direction
+    # return None
+
+    unexplored = [dir for dir in room if room[dir] == '?']
+    # print ("unexplored", unexplored)
+    if len(unexplored) == 0:
+        return None
+    direction = unexplored[random.randint(0, len(unexplored) - 1)]
+    return direction
 
 def find_direction(current_room, target_room_id):
     for direction in current_room:
@@ -42,7 +51,7 @@ def traverse_map(player):
     # while there are unexplored paths in graph
     while unexplored_paths > 0:
         current_room = player.current_room.id
-
+        # print ("current room", current_room)
         # check if current room has unexplored paths
         if '?' in graph[current_room].values():
             # if so
