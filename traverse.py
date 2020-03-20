@@ -3,7 +3,7 @@ class Queue():
         self.queue = []
 
     def enqueue(self, value):
-        self.enqueue.append(value)
+        self.queue.append(value)
 
     def dequeue(self):
         if self.size() > 0:
@@ -17,7 +17,13 @@ class Queue():
 def find_unexplored(room):
     for direction in room:
         if room[direction] == '?':
-            retur direction
+            return direction
+    return None
+
+def find_direction(current_room, target_room_id):
+    for direction in current_room:
+        if current_room[direction] == target_room_id:
+            return direction
     return None
 
 def traverse_map(player):
